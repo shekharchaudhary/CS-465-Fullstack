@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand navbar-light bg-light px-2">
+  <a class="navbar-brand" href="#"><img src="http://localhost:3000/images/logo.png" height="30"></a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link active" routerLink="">Trips</a>
+    </div>
+  </div>
+  <div class="navbar-end">
+    <a class="nav-item" routerLink="login" *ngIf="!isLoggedIn()">
+      <span>Log In</span>
+    </a>
+    <a class="nav-item active ms-3" (click)="onLogout()" *ngIf="isLoggedIn()">
+      <span>Log Out</span>
+    </a>
+  </div>
+</nav>
