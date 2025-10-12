@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TripDataService } from '../services/trip-data.service';
+import { RouterModule } from '@angular/router';
 import { Trip } from '../models/trip';
 import { TripCardComponent } from '../trip-card/trip-card.component';
 import { AuthenticationService } from '../services/authentication.service';
@@ -8,7 +9,7 @@ import { AuthenticationService } from '../services/authentication.service';
 @Component({
   selector: 'app-trip-listing',
   standalone: true,
-  imports: [CommonModule, TripCardComponent],
+  imports: [CommonModule, TripCardComponent, RouterModule],
   templateUrl: './trip-listing.component.html',
   styleUrl: './trip-listing.component.css'
 })
