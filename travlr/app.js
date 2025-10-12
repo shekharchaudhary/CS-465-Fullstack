@@ -27,6 +27,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// Redirect legacy static pages to dynamic routes
+app.get(['/travel.html', '/Travel.html', '/Travel'], (req, res) => res.redirect(301, '/travel'));
 app.use(express.static(path.join(__dirname, 'public')));
 // Enable Authorization header and basic CORS for dev
 app.use((req, res, next) => {
