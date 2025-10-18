@@ -13,7 +13,7 @@ const requireAuth = (req, res, next) => {
     const [scheme, token] = String(header).split(' ');
     if (!/^Bearer$/i.test(scheme) || !token) return res.status(401).json({ message: 'Invalid Authorization format' });
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-      if (err) return res.status(401).json({ message: 'Token validation error' });
+      if (err) return res.status(401).json({ message: 'Token validation error', error: err.message });
       req.auth = decoded;
       return next();
     });
@@ -30,7 +30,9 @@ router.get('/trips/:tripCode', tripsCtrl.tripsFindByCode);
 // Write routes used by the Angular admin app (Module 6/7)
 router.post('/trips', requireAuth, tripsCtrl.tripsCreate);
 router.put('/trips/:code', requireAuth, tripsCtrl.tripsUpdateByCode);
+router.put('/trips/:tripCode', requireAuth, tripsCtrl.tripsUpdateByCode);
 router.delete('/trips/:code', requireAuth, tripsCtrl.tripsDeleteByCode);
+router.delete('/trips/:tripCode', requireAuth, tripsCtrl.tripsDeleteByCode);
 
 // Auth routes
 router.post('/register', authController.register);
