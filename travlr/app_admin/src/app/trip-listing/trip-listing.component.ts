@@ -18,10 +18,18 @@ export class TripListingComponent implements OnInit {
 
   constructor(private tripDataService: TripDataService, public auth: AuthenticationService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void { this.refresh(); }
+
+  private refresh(): void {
     this.tripDataService.getTrips().subscribe({
       next: (trips) => (this.trips = trips),
       error: (err) => console.error('Failed to load trips', err),
     });
+  }
+
+  onDeleted(code: string): void {
+    this.trips = (this.trips || []).filter((trip) => trip.code !== code);
+    // Fallback: refresh from server to ensure state is in sync
+    this.refresh();
   }
 }

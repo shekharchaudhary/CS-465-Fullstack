@@ -30,7 +30,9 @@ router.get('/trips/:tripCode', tripsCtrl.tripsFindByCode);
 // Write routes used by the Angular admin app (Module 6/7)
 router.post('/trips', requireAuth, tripsCtrl.tripsCreate);
 router.put('/trips/:code', requireAuth, tripsCtrl.tripsUpdateByCode);
+router.put('/trips/:tripCode', requireAuth, tripsCtrl.tripsUpdateByCode);
 router.delete('/trips/:code', requireAuth, tripsCtrl.tripsDeleteByCode);
+router.delete('/trips/:tripCode', requireAuth, tripsCtrl.tripsDeleteByCode);
 
 // Auth routes
 router.post('/register', authController.register);

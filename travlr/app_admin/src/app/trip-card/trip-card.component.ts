@@ -37,8 +37,9 @@ export class TripCardComponent {
         this.deleted.emit(this.trip.code);
         this.busy = false;
       },
-      error: () => {
-        alert('Failed to delete trip. Please try again.');
+      error: (err) => {
+        const msg = err?.error?.message || err?.message || 'Unknown error';
+        alert(`Failed to delete trip: ${msg}`);
         this.busy = false;
       },
     });

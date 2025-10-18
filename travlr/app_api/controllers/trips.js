@@ -73,7 +73,7 @@ const tripsCreate = async (req, res) => {
 
 // PUT /api/trips/:code - update existing trip by code
 const tripsUpdateByCode = async (req, res) => {
-  const { code } = req.params;
+  const code = req.params.code || req.params.tripCode;
   try {
     const update = { ...req.body };
     if (update.start) {
@@ -97,7 +97,7 @@ const tripsUpdateByCode = async (req, res) => {
 
 // DELETE /api/trips/:code - delete a trip by code
 const tripsDeleteByCode = async (req, res) => {
-  const { code } = req.params;
+  const code = req.params.code || req.params.tripCode;
   try {
     const deleted = await Trip.findOneAndDelete({ code }).exec();
     if (!deleted) {
