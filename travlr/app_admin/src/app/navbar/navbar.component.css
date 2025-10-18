@@ -1,0 +1,10 @@
+/* Slightly larger brand logo to match mock */
+.brand-logo { height: 100px; }
+
+/* Keep nav link text subtle like the mock */
+.navbar .nav-link.active {
+  color: #6c757d; /* Bootstrap text-muted */
+}
+
+/* Push login/logout to the right */
+.navbar-end { margin-left: auto; }
