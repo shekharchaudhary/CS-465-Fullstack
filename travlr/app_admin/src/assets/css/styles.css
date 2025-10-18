@@ -26,3 +26,18 @@ body {
   background-color: var(--teal-hover) !important;
   border-color: var(--teal-hover) !important;
 }
+
+/* Outline version of teal button */
+.btn-teal-outline {
+  --teal: #1aa3b8;
+  --teal-hover: #168ea0;
+  color: var(--teal) !important;
+  background-color: transparent !important;
+  border: 1px solid var(--teal) !important;
+}
+.btn-teal-outline:hover,
+.btn-teal-outline:focus {
+  color: #fff !important;
+  background-color: var(--teal-hover) !important;
+  border-color: var(--teal-hover) !important;
+}
