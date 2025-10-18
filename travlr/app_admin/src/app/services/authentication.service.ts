@@ -22,7 +22,22 @@ export class AuthenticationService {
   }
 
   public isLoggedIn(): boolean {
-    return !!this.getToken();
+    const token = this.getToken();
+    if (!token) return false;
+    try {
+      const payload = JSON.parse(atob(String(token).split('.')[1] || '')) || {};
+      const exp = Number(payload.exp || 0);
+      if (!!exp && Date.now() >= exp * 1000) {
+        // Token expired
+        this.logout();
+        return false;
+      }
+      return true;
+    } catch {
+      // Corrupt token; clear it
+      this.logout();
+      return false;
+    }
   }
 
   public logout(): void {
@@ -43,4 +58,3 @@ export class AuthenticationService {
     });
   }
 }
-
