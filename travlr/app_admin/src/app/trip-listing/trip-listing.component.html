@@ -4,7 +4,7 @@
 </div>
 <div class="row row-cols-1 row-cols-md-3 g-3">
   <div class="col" *ngFor="let trip of trips">
-    <app-trip-card [trip]="trip" (deleted)="trips = trips.filter(t => t.code !== $event)"></app-trip-card>
+    <app-trip-card [trip]="trip" (deleted)="onDeleted($event)"></app-trip-card>
   </div>
   
 </div>
