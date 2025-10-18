@@ -23,12 +23,12 @@ export class LoginComponent implements OnInit {
 
   public onLoginSubmit(): void {
     this.formError = '';
+    this.submitted = true;
     if (!this.credentials.email || !this.credentials.password || !this.credentials.name) {
-      this.formError = 'All fields are required, please try again';
-      this.router.navigateByUrl('#');
-    } else {
-      this.doLogin();
+      // Inline validators will show messages; keep a generic alert only if needed
+      return;
     }
+    this.doLogin();
   }
 
   private doLogin(): void {
