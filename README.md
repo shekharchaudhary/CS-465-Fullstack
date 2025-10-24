@@ -4,6 +4,35 @@ Full‑stack application that combines an Express/Handlebars website, a REST API
 
 The Node server renders pages and exposes API endpoints backed by MongoDB. The Angular admin app connects to the API for content management.
 
+## Application Overview
+
+**Travlr Getaways** is a full-stack travel booking application that allows users to browse vacation packages and enables administrators to manage travel content through a secure admin interface.
+
+### Key Features
+
+**Customer-Facing Website:**
+- Browse available vacation packages and travel destinations
+- View detailed trip information including resort details, duration, pricing, and itineraries
+- Access information about rooms, meals, news, and contact details
+- Responsive server-side rendered pages using Handlebars templates
+
+**Admin Portal (Angular SPA):**
+- Secure authentication system with JWT-based authorization
+- Complete CRUD operations for trip management:
+  - **Create**: Add new vacation packages with full details
+  - **Read**: View all available trips in a card-based layout
+  - **Update**: Edit existing trip information
+  - **Delete**: Remove outdated or cancelled trips
+- Real-time synchronization with the API
+- Protected routes requiring user authentication
+
+**Backend API:**
+- RESTful API architecture for all trip operations
+- MongoDB database for persistent data storage
+- Passport.js authentication with local strategy
+- JWT token-based session management
+- Secure endpoints with authentication middleware
+
 ## Technology Stack
 
 ### Backend (Server + API)
