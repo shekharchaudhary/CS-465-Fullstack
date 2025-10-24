@@ -1,0 +1,43 @@
+/* Global styles for Travlr Admin */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  /* Light, subtle background to match mock */
+  background-color: #eef3f8;
+  min-height: 100vh;
+}
+
+/* Slightly elevate cards against the light background */
+.card {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom teal buttons to match mock */
+.btn-teal {
+  --teal: #1aa3b8; /* base */
+  --teal-hover: #168ea0; /* hover */
+  color: #fff !important;
+  background-color: var(--teal) !important;
+  border-color: var(--teal) !important;
+}
+.btn-teal:hover,
+.btn-teal:focus {
+  color: #fff !important;
+  background-color: var(--teal-hover) !important;
+  border-color: var(--teal-hover) !important;
+}
+
+/* Outline version of teal button */
+.btn-teal-outline {
+  --teal: #1aa3b8;
+  --teal-hover: #168ea0;
+  color: var(--teal) !important;
+  background-color: transparent !important;
+  border: 1px solid var(--teal) !important;
+}
+.btn-teal-outline:hover,
+.btn-teal-outline:focus {
+  color: #fff !important;
+  background-color: var(--teal-hover) !important;
+  border-color: var(--teal-hover) !important;
+}
