@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-12 col-md-8">
+    <h2>Login</h2>
+    <form (ngSubmit)="onLoginSubmit()" #loginForm="ngForm" novalidate>
+      <div role="alert" *ngIf="formError" class="alert alert-danger">{{ formError }}</div>
+
+      <div class="form-group mb-2">
+        <label for="name">Name</label>
+        <input type="text" name="name" class="form-control" placeholder="Enter Name"
+               [(ngModel)]="credentials.name" required #nameModel="ngModel">
+        <small class="text-danger" *ngIf="(nameModel.invalid && (nameModel.dirty || nameModel.touched || submitted))">
+          Name is required
+        </small>
+      </div>
+
+      <div class="form-group mb-2">
+        <label for="email">Email Address</label>
+        <input type="email" name="email" class="form-control" placeholder="Enter email address"
+               [(ngModel)]="credentials.email" required email #emailModel="ngModel">
+        <small class="text-danger" *ngIf="(emailModel.errors?.['required'] && (emailModel.dirty || emailModel.touched || submitted))">
+          Email is required
+        </small>
+        <small class="text-danger" *ngIf="(emailModel.errors?.['email'] && emailModel.value && (emailModel.dirty || emailModel.touched || submitted))">
+          Please enter a valid email
+        </small>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="e.g 12+ alphanumerics"
+               [(ngModel)]="credentials.password" required minlength="4" #passwordModel="ngModel">
+        <small class="text-danger" *ngIf="(passwordModel.errors?.['required'] && (passwordModel.dirty || passwordModel.touched || submitted))">
+          Password is required
+        </small>
+        <small class="text-danger" *ngIf="(passwordModel.errors?.['minlength'] && (passwordModel.dirty || passwordModel.touched || submitted))">
+          Password must be at least 4 characters
+        </small>
+      </div>
+
+      <button type="submit" role="button" class="btn btn-teal" [disabled]="loginForm.invalid && submitted">Sign In!</button>
+    </form>
+  </div>
+</div>

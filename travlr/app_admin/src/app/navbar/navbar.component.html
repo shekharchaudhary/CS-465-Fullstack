@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand navbar-light bg-light px-2">
+  <a class="navbar-brand d-flex align-items-center" href="#">
+    <img class="brand-logo" src="http://localhost:3000/images/logo.png" alt="Travlr Getaways logo" style="height:100px; width:auto;">
+  </a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link active" routerLink="">Trips(current)</a>
+    </div>
+  </div>
+  <div class="navbar-end d-flex align-items-center">
+    <span class="navbar-text text-muted small me-2">Travlr Getaways Admin</span>
+    <a class="btn btn-teal btn-sm" routerLink="login" *ngIf="!isLoggedIn()">Log In</a>
+    <button class="btn btn-teal btn-sm ms-2" (click)="onLogout()" *ngIf="isLoggedIn()">Log Out</button>
+  </div>
+</nav>

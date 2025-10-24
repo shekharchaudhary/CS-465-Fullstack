@@ -1,0 +1,17 @@
+<div class="card h-100">
+  <img class="card-img-top" [src]="'http://localhost:3000/images/' + trip.image" [alt]="trip.name" />
+  <div class="card-body">
+    <h5 class="card-title">{{ trip.name }}</h5>
+    <p class="card-text">{{ trip.description }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Code:</strong> {{ trip.code }}</li>
+    <li class="list-group-item"><strong>Length:</strong> {{ trip.length }}</li>
+    <li class="list-group-item"><strong>Resort:</strong> {{ trip.resort }}</li>
+    <li class="list-group-item"><strong>Price:</strong> {{ trip.perPerson | currency:'USD' }}</li>
+  </ul>
+  <div class="card-body d-flex gap-2" *ngIf="canEdit()">
+    <button type="button" class="btn btn-teal btn-sm" (click)="editTrip()">Edit Trip</button>
+    <button type="button" class="btn btn-teal-outline btn-sm" [disabled]="busy" (click)="deleteTrip()">Delete</button>
+  </div>
+</div>

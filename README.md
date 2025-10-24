@@ -82,7 +82,7 @@ cd app_admin
 npm install
 npm start
 ```
-The admin app uses Angular’s dev server with `proxy.conf.json` to forward API calls to the Node server during development.
+The admin app uses Angular's dev server with `proxy.conf.json` to forward API calls to the Node server during development.
 
 ## Scripts
 - Root: `npm start` — runs Express app via `./bin/www`
@@ -103,4 +103,3 @@ git commit -m "chore: initial commit with server, API, and admin"
 git remote add origin <your-repo-url>
 git push -u origin main
 ```
-

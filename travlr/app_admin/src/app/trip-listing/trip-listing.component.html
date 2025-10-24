@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <div class="h5 m-0">Trips</div>
+  <a class="btn btn-teal btn-sm" routerLink="/add" *ngIf="auth.isLoggedIn()">Add Trip</a>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-3">
+  <div class="col" *ngFor="let trip of trips">
+    <app-trip-card [trip]="trip" (deleted)="onDeleted($event)"></app-trip-card>
+  </div>
+  
+</div>
