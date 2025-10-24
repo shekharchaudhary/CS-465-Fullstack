@@ -4,6 +4,41 @@ Full‑stack application that combines an Express/Handlebars website, a REST API
 
 The Node server renders pages and exposes API endpoints backed by MongoDB. The Angular admin app connects to the API for content management.
 
+## Technology Stack
+
+### Backend (Server + API)
+- **Runtime**: Node.js
+- **Framework**: Express.js 4.16.1
+- **Template Engine**: Handlebars (HBS) 4.0.4
+- **Database**: MongoDB 6.20.0
+- **ODM**: Mongoose 8.18.2
+- **Authentication**:
+  - Passport.js 0.7.0 with passport-local strategy
+  - JWT (jsonwebtoken) 9.0.2 for token-based authentication
+- **Utilities**:
+  - dotenv 17.2.3 - Environment variable management
+  - morgan 1.9.1 - HTTP request logger
+  - cookie-parser 1.4.4 - Cookie parsing middleware
+  - http-errors 1.6.3 - HTTP error handling
+
+### Frontend (Angular Admin)
+- **Framework**: Angular 17.3.0
+  - @angular/core, @angular/common, @angular/router
+  - @angular/forms - Reactive and template-driven forms
+  - @angular/platform-browser - Browser platform support
+- **Language**: TypeScript 5.4.2
+- **Reactive Programming**: RxJS 7.8.0
+- **Zone Management**: Zone.js 0.14.3
+- **Testing**:
+  - Jasmine 5.1.0 - Testing framework
+  - Karma 6.4.0 - Test runner
+- **Build Tools**: Angular CLI 17.3.17 with Angular DevKit
+
+### Development Tools
+- **API Proxy**: Angular proxy configuration for local development
+- **Debugging**: debug module for diagnostic output
+- **Version Control**: Git
+
 ## Repository Structure
 - `app_server`: Express + Handlebars website (routes, views, controllers)
 - `app_api`: REST API (routes, controllers, models, auth/passport)
